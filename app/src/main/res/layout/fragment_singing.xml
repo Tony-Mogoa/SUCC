@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        tools:context=".SingingFragment">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/songVerses"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/musicScoreBtn"
+            app:layout_constraintVertical_bias="0.53999996"
+            tools:visibility="visible" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:visibility="gone"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/songVerses"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                tools:context=".SingingFragment">
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@+id/maxPlayDuration"
+                    app:layout_constraintStart_toEndOf="@+id/currentTime"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/spark_button_soprano"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="2dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewSoprano"
+                    app:layout_constraintEnd_toStartOf="@+id/spark_button_alto"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seekBar"
+                    tools:visibility="visible">
+
+
+                    <ProgressBar
+                        android:id="@+id/downloadProgressSoprano"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_centerInParent="true"
+                        android:clickable="false"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circle"
+                        android:rotation="270"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.varunest.sparkbutton.SparkButton
+                        android:id="@+id/button_soprano"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:sparkbutton_activeImage="@drawable/ic_pause_circle_outline_black_24dp"
+                        app:sparkbutton_iconSize="30dp"
+                        app:sparkbutton_inActiveImage="@drawable/ic_play_circle_outline_black_24dp"
+                        app:sparkbutton_primaryColor="@color/sparkGreen"
+                        app:sparkbutton_secondaryColor="@color/sparkOrange" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/spark_button_alto"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="2dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewAlto"
+                    app:layout_constraintEnd_toStartOf="@+id/spark_button_tenor"
+                    app:layout_constraintStart_toEndOf="@+id/spark_button_soprano"
+                    app:layout_constraintTop_toBottomOf="@id/seekBar"
+                    tools:visibility="visible">
+
+
+                    <ProgressBar
+                        android:id="@+id/downloadProgressAlto"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_centerInParent="true"
+                        android:clickable="false"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circle"
+                        android:rotation="270"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.varunest.sparkbutton.SparkButton
+                        android:id="@+id/button_alto"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:sparkbutton_activeImage="@drawable/ic_pause_circle_outline_black_24dp"
+                        app:sparkbutton_iconSize="30dp"
+                        app:sparkbutton_inActiveImage="@drawable/ic_play_circle_outline_black_24dp"
+                        app:sparkbutton_primaryColor="@color/sparkGreen"
+                        app:sparkbutton_secondaryColor="@color/sparkOrange" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/spark_button_tenor"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="2dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewTenor"
+                    app:layout_constraintEnd_toStartOf="@+id/spark_button_bass"
+                    app:layout_constraintStart_toEndOf="@+id/spark_button_alto"
+                    app:layout_constraintTop_toBottomOf="@id/seekBar"
+                    tools:visibility="visible">
+
+
+                    <ProgressBar
+                        android:id="@+id/downloadProgressTenor"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_centerInParent="true"
+                        android:clickable="false"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circle"
+                        android:rotation="270"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.varunest.sparkbutton.SparkButton
+                        android:id="@+id/button_tenor"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:sparkbutton_activeImage="@drawable/ic_pause_circle_outline_black_24dp"
+                        app:sparkbutton_iconSize="30dp"
+                        app:sparkbutton_inActiveImage="@drawable/ic_play_circle_outline_black_24dp"
+                        app:sparkbutton_primaryColor="@color/sparkGreen"
+                        app:sparkbutton_secondaryColor="@color/sparkOrange" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/spark_button_bass"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="2dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewBass"
+                    app:layout_constraintEnd_toStartOf="@+id/spark_button_choir"
+                    app:layout_constraintStart_toEndOf="@+id/spark_button_tenor"
+                    app:layout_constraintTop_toBottomOf="@id/seekBar"
+                    tools:visibility="visible">
+
+
+                    <ProgressBar
+                        android:id="@+id/downloadProgressBass"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_centerInParent="true"
+                        android:clickable="false"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circle"
+                        android:rotation="270"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.varunest.sparkbutton.SparkButton
+                        android:id="@+id/button_bass"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:sparkbutton_activeImage="@drawable/ic_pause_circle_outline_black_24dp"
+                        app:sparkbutton_iconSize="30dp"
+                        app:sparkbutton_inActiveImage="@drawable/ic_play_circle_outline_black_24dp"
+                        app:sparkbutton_primaryColor="@color/sparkGreen"
+                        app:sparkbutton_secondaryColor="@color/sparkOrange" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textViewSoprano"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:longClickable="true"
+                    android:text="@string/sop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/spark_button_soprano"
+                    app:layout_constraintStart_toStartOf="@+id/spark_button_soprano"
+                    app:layout_constraintTop_toBottomOf="@+id/spark_button_soprano" />
+
+                <TextView
+                    android:id="@+id/textViewAlto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:longClickable="true"
+                    android:text="@string/alto"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/spark_button_alto"
+                    app:layout_constraintStart_toStartOf="@+id/spark_button_alto"
+                    app:layout_constraintTop_toBottomOf="@+id/spark_button_alto" />
+
+                <TextView
+                    android:id="@+id/textViewTenor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:longClickable="true"
+                    android:text="@string/tenor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/spark_button_tenor"
+                    app:layout_constraintStart_toStartOf="@+id/spark_button_tenor"
+                    app:layout_constraintTop_toBottomOf="@+id/spark_button_tenor" />
+
+                <TextView
+                    android:id="@+id/textViewBass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:longClickable="true"
+                    android:text="@string/bass"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/spark_button_bass"
+                    app:layout_constraintStart_toStartOf="@+id/spark_button_bass"
+                    app:layout_constraintTop_toBottomOf="@+id/spark_button_bass" />
+
+                <TextView
+                    android:id="@+id/textViewChoir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:longClickable="true"
+                    android:text="@string/choir"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/spark_button_choir"
+                    app:layout_constraintStart_toStartOf="@+id/spark_button_choir"
+                    app:layout_constraintTop_toBottomOf="@+id/spark_button_choir"
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/spark_button_choir"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="2dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewChoir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spark_button_bass"
+                    app:layout_constraintTop_toBottomOf="@id/seekBar"
+                    tools:visibility="visible">
+
+
+                    <ProgressBar
+                        android:id="@+id/downloadProgressChoir"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_centerInParent="true"
+                        android:clickable="false"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/circle"
+                        android:rotation="270"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.varunest.sparkbutton.SparkButton
+                        android:id="@+id/button_choir"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:sparkbutton_activeImage="@drawable/ic_pause_circle_outline_black_24dp"
+                        app:sparkbutton_iconSize="30dp"
+                        app:sparkbutton_inActiveImage="@drawable/ic_play_circle_outline_black_24dp"
+                        app:sparkbutton_primaryColor="@color/sparkGreen"
+                        app:sparkbutton_secondaryColor="@color/sparkOrange" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/maxPlayDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/seekBar"
+                    tools:text="2.00" />
+
+                <TextView
+                    android:id="@+id/currentTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/seekBar"
+                    tools:text="1.00" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/oopsImage"
+            android:layout_width="146dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/oops"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/songVerses"
+            app:srcCompat="@drawable/ic_signal_cellular_connected_no_internet_4_bar_black_24dp"
+            tools:srcCompat="@drawable/ic_sentiment_dissatisfied_black_24dp"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dataStateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/turn_data_on"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/oopsImage"
+            app:layout_constraintEnd_toEndOf="@+id/oopsImage"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="@+id/oopsImage"
+            tools:text="No results"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/musicScoreBtn"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:longClickable="true"
+            android:text="@string/music_score"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/progressBar3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/musicScoreBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

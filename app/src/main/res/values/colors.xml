@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorViolet">#8706BA</color>
+    <color name="splash_background_color">#FFFFFF</color>
+    <color name="secondary_text_default_material_light_succ">#8a000000</color>
+    <color name="white_font">#FFFFFF</color>
+    <color name="colorBlue">#086FC8</color>
+    <color name="colorWhite">#FAFAFA</color>
+    <color name="colorBlack">#131E0D</color>
+    <color name="colorRose">#DE0965</color>
+    <color name="colorGreen">#09A642</color>
+    <color name="colorRed">#DE173A</color>
+    <color name="colorDarkWhite">#E5E5E5</color>
+    <color name="hymnPackGreen">#1CA672</color>
+    <color name="colorOrange">#FFA009</color>
+    <color name="sparkGreen">#1CA672</color>
+    <color name="sparkOrange">#FFA009</color>
+</resources>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.vitalware.succ.HymnListListener" />
+
+        <variable
+            name="hymnInList"
+            type="com.vitalware.succ.HymnProfile" />
+
+        <variable
+            name="optionsListener"
+            type="com.vitalware.succ.HymnOptionsListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> clickListener.onClick(hymnInList)}">
+
+        <TextView
+            android:id="@+id/hymnTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="@dimen/font_size_18"
+            app:hymnTitleSet="@{hymnInList}"
+            app:layout_constraintBottom_toTopOf="@+id/textHymnal"
+            app:layout_constraintEnd_toStartOf="@+id/noDotId"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageNote"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="O Crux Ave" />
+
+        <ImageView
+            android:id="@+id/imageNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/musical_note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_music_note_black_24dp" />
+
+        <TextView
+            android:id="@+id/textHymnal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"
+            android:textColor="?attr/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageNote"
+            app:hymnalTextSet="@{hymnInList}"
+            tools:text="@string/cdh" />
+
+        <TextView
+            android:id="@+id/textNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:textColor="?attr/colorAccent"
+            app:hymnNumberSet="@{hymnInList}"
+            app:layout_constraintEnd_toStartOf="@+id/optionIconText"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="102" />
+
+        <TextView
+            android:id="@+id/textPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorAccent"
+            app:hymnPageSet="@{hymnInList}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/optionIconText"
+            app:layout_constraintTop_toBottomOf="@+id/textNumber"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="84" />
+
+        <TextView
+            android:id="@+id/textpDot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/page"
+            android:textColor="@color/colorOrange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textPage"
+            app:layout_constraintTop_toBottomOf="@+id/textNumber" />
+
+        <TextView
+            android:id="@+id/noDotId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/number"
+            android:textColor="@color/colorOrange"
+            app:layout_constraintEnd_toStartOf="@+id/textNumber"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/optionIconText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/padding"
+            android:text="@string/_8942"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{(view) -> optionsListener.onClick(hymnInList, view)}"/>
+
+        <TextView
+            android:id="@+id/hymnId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textHymnal"
+            android:visibility="gone"
+            app:hymnIdSet="@{hymnInList}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

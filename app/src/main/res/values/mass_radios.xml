@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mass_radios">
+        <item>Entrance</item>
+        <item>Kyrie and Gloria</item>
+        <item>Gospel Procession</item>
+        <item>Offertory</item>
+        <item>Communion</item>
+        <item>Exit</item>
+    </string-array>
+</resources>

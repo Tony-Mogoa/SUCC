@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/editHymn"
+        android:title="@string/edit_hymn" />
+    <item
+        android:id="@+id/deleteHymn"
+        android:title="@string/delete_hymn" />
+    <item
+        android:id="@+id/alterVerses"
+        android:title="@string/alter_verses" />
+    <item
+        android:id="@+id/addToFav"
+        android:title="@string/add_fav_hymn" />
+    <item
+        android:id="@+id/forMassList"
+        android:title="@string/for_mass" />
+</menu>

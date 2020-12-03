@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/massFragment"
+        android:icon="@drawable/ic_today_black_24dp"
+        android:title="@string/hymns_mass" />
+    <item
+        android:id="@+id/favouritesFragment"
+        android:icon="@drawable/ic_star_black_24dp"
+        android:title="@string/favs" />
+    <item
+        android:id="@+id/themeSetFragment"
+        android:icon="@drawable/ic_bubble_chart_black_24dp"
+        android:title="@string/set_theme_lbl" />
+    <item
+        android:id="@+id/hymnPackFragment"
+        android:icon="@drawable/ic_queue_music_black_24dp"
+        android:title="@string/add_hymn_pack" />
+    <item
+        android:id="@+id/newHymnFragment"
+        android:icon="@drawable/ic_add_circle_outline_black_24dp"
+        android:title="@string/add_hymn" />
+</menu>

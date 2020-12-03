@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/listen_to_audio_item"
+        android:title="@string/listen_to_audio" />
+    <item
+        android:id="@+id/recordFragment"
+        android:title="@string/edit_audios" />
+    <item
+        android:id="@+id/add_music_score"
+        android:title="@string/add_music_score" />
+    <item
+        android:id="@+id/delAudio"
+        android:title="@string/del_audio" />
+    <item
+        android:id="@+id/del_score"
+        android:title="@string/del_score_on_cloud" />
+</menu>

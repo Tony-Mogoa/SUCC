@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HymnListFragment">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hymnList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/oopsImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateSelect"
+            app:layout_constraintVertical_bias="0.0"
+            tools:itemCount="15"
+            tools:listitem="@layout/hymn_item_view"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/oopsImage"
+            android:layout_width="146dp"
+            android:layout_height="150dp"
+            android:contentDescription="@string/oops"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hymnList"
+            tools:srcCompat="@drawable/ic_sentiment_dissatisfied_black_24dp"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dataStateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/oopsImage"
+            app:layout_constraintEnd_toEndOf="@+id/oopsImage"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="@+id/oopsImage"
+            tools:text="No results"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dateSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="May 12, 5050"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

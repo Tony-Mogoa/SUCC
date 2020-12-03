@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "654195978157",
+    "firebase_url": "https://succ-3d591.firebaseio.com",
+    "project_id": "succ-3d591",
+    "storage_bucket": "succ-3d591.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654195978157:android:81619a7eb5bb46e2defb24",
+        "android_client_info": {
+          "package_name": "com.vitalware.succ"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654195978157-hk8f41l8hkplkaumuu2n2v07dus84p7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vitalware.succ",
+            "certificate_hash": "f2ca392baaa43085ed4716fc77dd720b12a3c401"
+          }
+        },
+        {
+          "client_id": "654195978157-7fnrpoefikrtig77228r4tdba6p2jh5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vitalware.succ",
+            "certificate_hash": "8e533fef6347d583110d974c028a7596b833255e"
+          }
+        },
+        {
+          "client_id": "654195978157-bppd0ohgh039897n7kpk4q083g59nkhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmnSLY6jPJcoiBHkQcwCFpnbPvjBuUXms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654195978157-bppd0ohgh039897n7kpk4q083g59nkhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.vitalware.succ.HymnPackListener"/>
+        <variable
+            name="hymnPack"
+            type="com.vitalware.succ.HymnPack" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/pack_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/package_drawable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_queue_music_black_24dp" />
+
+    <TextView
+        android:id="@+id/hymn_pack_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:hymnPackTextSet="@{hymnPack}"
+        app:layout_constraintBottom_toBottomOf="@+id/pack_image"
+        app:layout_constraintStart_toEndOf="@+id/pack_image"
+        app:layout_constraintTop_toTopOf="@+id/pack_image"
+        tools:text="Entrance Hymns" />
+
+    <TextView
+        android:id="@+id/pack_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/hymnPackGreen"
+        android:textSize="18sp"
+        app:hymnPackSizeSet="@{hymnPack}"
+        app:layout_constraintBottom_toBottomOf="@+id/hymn_pack_text"
+        app:layout_constraintEnd_toStartOf="@+id/pack_del_btn"
+        app:layout_constraintTop_toTopOf="@+id/hymn_pack_text"
+        tools:text="106" />
+
+    <ImageView
+        android:id="@+id/pack_del_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> clickListener.onClick(hymnPack)}"
+        app:layout_constraintBottom_toBottomOf="@+id/pack_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pack_size"
+        app:srcCompat="@drawable/ic_delete_forever_black_24dp"
+        android:contentDescription="@string/delete" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:hymnPackIdSet="@{hymnPack}"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

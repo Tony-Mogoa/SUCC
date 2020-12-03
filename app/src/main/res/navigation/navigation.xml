@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/singFragment">
+    <fragment
+        android:id="@+id/singFragment"
+        android:name="com.vitalware.succ.SingFragment"
+        android:label="@string/sing"
+        tools:layout="@layout/fragment_sing" >
+        <action
+            android:id="@+id/action_singFragment_to_firstNameFragment"
+            app:destination="@id/firstNameFragment"
+            app:popUpTo="@+id/singFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_singFragment_to_themeSetFragment"
+            app:destination="@id/themeSetFragment" />
+        <action
+            android:id="@+id/action_singFragment_to_hymnListFragment"
+            app:destination="@id/hymnListFragment" />
+        <action
+            android:id="@+id/action_singFragment_to_singingFragment"
+            app:destination="@id/singingFragment" />
+        <action
+            android:id="@+id/action_singFragment_to_verseAddFragment"
+            app:destination="@id/verseAddFragment" />
+        <action
+            android:id="@+id/action_singFragment_to_editHymnFragment"
+            app:destination="@id/editHymnFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstNameFragment"
+        android:name="com.vitalware.succ.FirstNameFragment"
+        android:label="@string/sign_up"
+        tools:layout="@layout/fragment_first_name">
+        <action
+            android:id="@+id/action_firstNameFragment_to_authCodeFragment"
+            app:destination="@id/authCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeSetFragment"
+        android:name="com.vitalware.succ.ThemeSetFragment"
+        android:label="@string/set_theme_lbl"
+        tools:layout="@layout/fragment_theme_set"/>
+    <fragment
+        android:id="@+id/hymnPackFragment"
+        android:name="com.vitalware.succ.HymnPackFragment"
+        android:label="@string/add_hymn_pack"
+        tools:layout="@layout/fragment_hymn_pack"/>
+    <fragment
+        android:id="@+id/newHymnFragment"
+        android:name="com.vitalware.succ.NewHymnFragment"
+        android:label="@string/add_hymn"
+        tools:layout="@layout/fragment_new_hymn">
+        <action
+            android:id="@+id/action_newHymnFragment_to_verseAddFragment"
+            app:destination="@id/verseAddFragment"
+            app:popUpTo="@+id/newHymnFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/verseAddFragment"
+        android:name="com.vitalware.succ.VerseAddFragment"
+        android:label="@string/add_verses_or_chorus"
+        tools:layout="@layout/fragment_verse_add">
+        <argument
+            android:name="hymnId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_verseAddFragment_to_editVerseFragment"
+            app:destination="@id/editVerseFragment" />
+        <argument
+            android:name="hymnTitle"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editVerseFragment"
+        android:name="com.vitalware.succ.EditVerseFragment"
+        android:label="@string/edit_verse"
+        tools:layout="@layout/fragment_edit_verse">
+        <argument
+            android:name="verse_init"
+            app:argType="string" />
+        <argument
+            android:name="verse_id"
+            app:argType="string" />
+        <argument
+            android:name="isChorus"
+            app:argType="boolean" />
+        <argument
+            android:name="hymnId"
+            app:argType="string" />
+        <argument
+            android:name="hymnTitle"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/hymnListFragment"
+        android:name="com.vitalware.succ.HymnListFragment"
+        tools:layout="@layout/fragment_hymn_list">
+        <argument
+            android:name="packId"
+            app:argType="string" />
+        <argument
+            android:name="packName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_hymnListFragment_to_singingFragment"
+            app:destination="@id/singingFragment" />
+        <action
+            android:id="@+id/action_hymnListFragment_to_editHymnFragment"
+            app:destination="@id/editHymnFragment" />
+        <action
+            android:id="@+id/action_hymnListFragment_to_verseAddFragment"
+            app:destination="@id/verseAddFragment" />
+        <argument
+            android:name="packSize"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/singingFragment"
+        android:name="com.vitalware.succ.SingingFragment"
+        tools:layout="@layout/fragment_singing">
+        <argument
+            android:name="hymnTitle"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_singingFragment_to_editVerseFragment"
+            app:destination="@id/editVerseFragment" />
+        <argument
+            android:name="hymnId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_singingFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editHymnFragment"
+        android:name="com.vitalware.succ.EditHymnFragment"
+        android:label="@string/edit_hymn"
+        tools:layout="@layout/fragment_edit_hymn">
+        <argument
+            android:name="hymnTitle"
+            app:argType="string" />
+        <argument
+            android:name="hymnId"
+            app:argType="string" />
+        <argument
+            android:name="hymnPage"
+            app:argType="string" />
+        <argument android:name="hymnNumber"
+            app:argType="string" />
+        <argument
+            android:name="hymnal"
+            app:argType="string" />
+        <argument
+            android:name="packId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.vitalware.succ.RecordFragment"
+        android:label="@string/record_audio"
+        tools:layout="@layout/fragment_record">
+        <argument
+            android:name="hymnId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.vitalware.succ.FavouritesFragment"
+        android:label="@string/favs"
+        tools:layout="@layout/fragment_hymn_list">
+        <action
+            android:id="@+id/action_favouritesFragment_to_singingFragment"
+            app:destination="@id/singingFragment" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_verseAddFragment"
+            app:destination="@id/verseAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/massFragment"
+        android:name="com.vitalware.succ.MassFragment"
+        android:label="@string/mass_hymns"
+        tools:layout="@layout/fragment_hymn_list">
+        <action
+            android:id="@+id/action_massFragment_to_singingFragment"
+            app:destination="@id/singingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authCodeFragment"
+        android:name="com.vitalware.succ.AuthCodeFragment"
+        android:label="AuthCodeFragment" >
+        <action
+            android:id="@+id/action_authCodeFragment_to_singFragment"
+            app:destination="@id/singFragment"
+            app:popUpTo="@+id/firstNameFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
